@@ -14,6 +14,3 @@ command:
   yacfg --profile artemis/2.15.0/default_with_user_address_settings.yaml.jinja2:
     exit-status: 0
     timeout: 10000
-  yacfg --profile artemis/2.15.0/default_with_user_address_settings.yaml.jinja2  --tune wrong_broker.yml:
-    exit-status: 0
-    timeout: 10000

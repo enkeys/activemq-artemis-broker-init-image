@@ -8,6 +8,6 @@ build:
 
 test/dgoss:
 	source .env; \
-	dgoss run $${TARGET_IMAGE}; \
-	GOSS_OPTS="--format junit" dgoss run $${TARGET_IMAGE}
+	dgoss run $${TARGET_IMAGE} sleep 300; \
+	GOSS_OPTS="--format junit" dgoss run $${TARGET_IMAGE} sleep 300
 	 > /tmp/goss.junit.xml
