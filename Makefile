@@ -1,13 +1,15 @@
 #!Makefile
 
+SHELL := /bin/sh -x
+DOT_ENV ?= ./.env
+
 all: build
 
 build:
-	source .env; \
-	docker build . -t $${TARGET_IMAGE}
+	@set -a; . $(DOT_ENV); \
+	docker build . -t $${IMAGE_INIT_TAG}
 
 test/dgoss:
-	source .env; \
-	dgoss run $${TARGET_IMAGE} sleep 300; \
-	GOSS_OPTS="--format junit" dgoss run $${TARGET_IMAGE} sleep 300
-	 > /tmp/goss.junit.xml
+	@set -a; . $(DOT_ENV); \
+	GOSS_OPTS="--format documentation --format-options verbose" dgoss run $${IMAGE_INIT_TAG} sleep 300; \
+	GOSS_OPTS="--format junit --format-options verbose" dgoss run $${IMAGE_INIT_TAG} sleep 300 > goss.junit.xml;

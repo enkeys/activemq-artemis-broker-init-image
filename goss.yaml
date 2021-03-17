@@ -11,6 +11,10 @@ command:
   yacfg --list-templates:
     exit-status: 0
     timeout: 2000
-  yacfg --profile artemis/2.15.0/default_with_user_address_settings.yaml.jinja2:
+  yacfg --profile artemis/2.17.0/default_with_user_address_settings.yaml.jinja2:
+    exit-status: 0
+    timeout: 10000
+
+  yacfg --profile amq_broker/7.8.1/default_with_user_address_settings.yaml.jinja2:
     exit-status: 0
     timeout: 10000
